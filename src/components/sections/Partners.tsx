@@ -3,7 +3,7 @@ import { partners } from "@/data/event";
 import ibmQuantum from "@/assets/ibm-quantum-logotype.jpg.asset.json";
 
 /** Logo slot: replace `logo` with an imported asset URL, layout stays put. */
-function LogoSlot({ name, note, logo }: { name: string; note: string; logo?: string }) {
+function LogoSlot({ name, note, logo }: { name: string; note: string; logo?: string | undefined }) {
   return (
     <li className="flex min-h-[9rem] flex-col justify-between gap-4 border-t border-ink/25 pt-4">
       <div className="flex min-h-16 items-center">

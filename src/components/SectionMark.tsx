@@ -6,7 +6,7 @@ export function SectionMark({
 }: {
   index: string;
   title: string;
-  note?: string;
+  note?: string | undefined;
 }) {
   return (
     <div className="rule-ink flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1 pt-3">

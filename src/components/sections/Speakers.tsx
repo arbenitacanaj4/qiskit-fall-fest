@@ -23,7 +23,7 @@ export function Speakers() {
             return (
               <Reveal
                 key={s.name}
-                className={`grid items-start gap-6 lg:grid-cols-12 lg:gap-8 ${flip ? "" : ""}`}
+                className="grid items-start gap-6 lg:grid-cols-12 lg:gap-8"
               >
                 {/* portrait */}
                 <div

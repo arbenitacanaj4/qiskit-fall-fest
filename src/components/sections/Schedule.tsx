@@ -4,8 +4,8 @@ import { SectionMark } from "@/components/SectionMark";
 import { schedule } from "@/data/event";
 
 export function Schedule() {
-  const [day, setDay] = useState(schedule[0].id);
-  const current = schedule.find((d) => d.id === day) ?? schedule[0];
+  const [day, setDay] = useState(schedule[0]!.id);
+  const current = schedule.find((d) => d.id === day) ?? schedule[0]!;
 
   return (
     <section id="schedule" className="relative isolate overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-28">

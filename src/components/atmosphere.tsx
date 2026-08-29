@@ -30,11 +30,11 @@ type CloudProps = {
   /** visual depth: 1 = closest / fastest, 3 = distant / slowest */
   depth?: 1 | 2 | 3;
   variant?: 1 | 2;
-  className?: string;
+  className?: string | undefined;
   /** hidden below lg — use for extra desktop-only layers */
-  desktopOnly?: boolean;
-  opacity?: number;
-  flip?: boolean;
+  desktopOnly?: boolean | undefined;
+  opacity?: number | undefined;
+  flip?: boolean | undefined;
 };
 
 /**
@@ -112,9 +112,9 @@ export function Reveal({
   className = "",
 }: {
   children: React.ReactNode;
-  as?: React.ElementType;
-  delay?: number;
-  className?: string;
+  as?: React.ElementType | undefined;
+  delay?: number | undefined;
+  className?: string | undefined;
 }) {
   const ref = useRef<HTMLElement>(null);
   const [seen, setSeen] = useState(false);
@@ -125,7 +125,7 @@ export function Reveal({
     if (!el) return;
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry?.isIntersecting) {
           setSeen(true);
           io.disconnect();
         }
@@ -156,7 +156,7 @@ export function Reveal({
 }
 
 /** |0⟩ → |1⟩ easter egg. */
-export function Qubit({ className = "" }: { className?: string }) {
+export function Qubit({ className = "" }: { className?: string | undefined }) {
   const [one, setOne] = useState(false);
   return (
     <button

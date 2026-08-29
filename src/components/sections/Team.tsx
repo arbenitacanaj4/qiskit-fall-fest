@@ -27,7 +27,7 @@ export function Team() {
               as="li"
               key={m.name}
               delay={i * 50}
-              className={i % 2 === 1 ? "lg:mt-10" : undefined}
+              className={i % 2 === 1 ? "lg:mt-10" : ""}
             >
               <Portrait src={m.photo} name={m.name} ratio="aspect-square" />
               <p className="display mt-2 text-xl leading-none">{m.name}</p>

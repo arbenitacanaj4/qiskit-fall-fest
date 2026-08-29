@@ -8,10 +8,10 @@ export function Portrait({
   className = "",
   ratio = "aspect-[4/5]",
 }: {
-  src?: string;
+  src?: string | undefined;
   name: string;
-  className?: string;
-  ratio?: string;
+  className?: string | undefined;
+  ratio?: string | undefined;
 }) {
   return (
     <div className={`relative overflow-hidden bg-peri/70 ${ratio} ${className}`}>
