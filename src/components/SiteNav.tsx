@@ -31,7 +31,7 @@ export function SiteNav() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 bg-paper/85 backdrop-blur-[2px]">
+    <header className="sticky top-0 z-50 bg-paper">
       <div className="mx-auto flex max-w-[1600px] items-stretch gap-4 border-b border-ink/20 px-4 sm:px-6 lg:px-8">
         {/* wordmark */}
         <a
