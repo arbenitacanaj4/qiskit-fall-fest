@@ -1,0 +1,121 @@
+import { useEffect, useState } from "react";
+import { nav, REGISTER_URL, event } from "@/data/event";
+
+export function SiteNav() {
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("#home");
+
+  useEffect(() => {
+    const ids = nav.map((n) => n.href.slice(1));
+    const io = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActive(`#${visible.target.id}`);
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.2, 0.6] },
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  return (
+    <header className="sticky top-0 z-50 bg-paper/85 backdrop-blur-[2px]">
+      <div className="mx-auto flex max-w-[1600px] items-stretch gap-4 border-b border-ink/20 px-4 sm:px-6 lg:px-8">
+        {/* wordmark */}
+        <a
+          href="#home"
+          className="flex min-w-0 shrink-0 items-center gap-3 py-3"
+          aria-label="Qiskit Fall Fest Budapest — home"
+        >
+          <span className="grid size-6 shrink-0 place-items-center rounded-full bg-pink" aria-hidden="true">
+            <span className="block size-2 rounded-full bg-paper" />
+          </span>
+          <span className="display truncate text-[15px] leading-none tracking-[0.04em] sm:text-lg">
+            Qiskit Fall Fest <span className="text-pink">Budapest</span>
+          </span>
+        </a>
+
+        {/* desktop: inline editorial index, no floating pill */}
+        <nav aria-label="Sections" className="hidden flex-1 items-stretch justify-end lg:flex">
+          <ul className="flex items-stretch">
+            {nav.map((item, i) => (
+              <li key={item.href} className="flex">
+                <a
+                  href={item.href}
+                  aria-current={active === item.href ? "true" : undefined}
+                  className={`group flex items-end gap-1.5 border-l border-ink/15 px-3 pt-3 pb-2 font-mono text-[11px] tracking-[0.16em] uppercase transition-colors xl:px-4 ${
+                    active === item.href ? "text-pink" : "text-ink/70 hover:text-ink"
+                  }`}
+                >
+                  <span className="text-[9px] text-ink/35 group-hover:text-pink">
+                    {String(i).padStart(2, "0")}
+                  </span>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <a
+          href={REGISTER_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="ml-auto flex shrink-0 items-center gap-2 bg-pink px-4 font-mono text-[11px] tracking-[0.18em] text-paper uppercase transition-colors hover:bg-ink lg:ml-0 lg:px-7"
+        >
+          Register <span aria-hidden="true">↗</span>
+        </a>
+
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          className="flex shrink-0 items-center gap-2 border-l border-ink/15 pl-4 font-mono text-[11px] tracking-[0.18em] uppercase lg:hidden"
+        >
+          {open ? "Close" : "Menu"}
+        </button>
+      </div>
+
+      {open && (
+        <div
+          id="mobile-menu"
+          className="fixed inset-x-0 top-[57px] bottom-0 z-50 overflow-y-auto bg-paper lg:hidden"
+        >
+          <ul className="px-4 pt-2 pb-10 sm:px-6">
+            {nav.map((item, i) => (
+              <li key={item.href} className="border-b border-ink/15">
+                <a
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="flex items-baseline justify-between py-4"
+                >
+                  <span className="display text-4xl">{item.label}</span>
+                  <span className="font-mono text-[10px] text-ink/40">
+                    {String(i).padStart(2, "0")}
+                  </span>
+                </a>
+              </li>
+            ))}
+            <li className="pt-6">
+              <p className="mono-label">{event.datesShort}</p>
+              <p className="mt-1 font-mono text-xs text-ink/70">{event.hostShort}, Budapest</p>
+            </li>
+          </ul>
+        </div>
+      )}
+    </header>
+  );
+}
