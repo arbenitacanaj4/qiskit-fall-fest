@@ -35,6 +35,8 @@ type CloudProps = {
   desktopOnly?: boolean | undefined;
   opacity?: number | undefined;
   flip?: boolean | undefined;
+  /** for dark sections: lighten instead of darken */
+  blend?: boolean | undefined;
 };
 
 /**
@@ -48,6 +50,7 @@ export function Cloud({
   desktopOnly = false,
   opacity,
   flip = false,
+  blend = false,
 }: CloudProps) {
   const ref = useRef<HTMLDivElement>(null);
   const reduced = usePrefersReducedMotion();
@@ -92,7 +95,7 @@ export function Cloud({
           decoding="async"
           width={1536}
           height={variant === 1 ? 896 : 768}
-          className="h-auto w-full"
+          className={`h-auto w-full ${blend ? "mix-blend-screen" : ""}`}
           style={{
             opacity: base,
             filter: `blur(${depth === 1 ? 6 : depth === 2 ? 14 : 26}px) saturate(${depth === 3 ? 0.6 : 1})`,

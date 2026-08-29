@@ -8,7 +8,7 @@ function LogoSlot({ name, note, logo }: { name: string; note: string; logo?: str
     <li className="flex min-h-[9rem] flex-col justify-between gap-4 border-t border-ink/25 pt-4">
       <div className="flex min-h-16 items-center">
         {logo ? (
-          <img src={logo} alt={name} loading="lazy" className="max-h-14 w-auto max-w-[70%]" />
+          <img src={logo} alt={name} loading="lazy" className="max-h-14 w-auto max-w-[70%] mix-blend-multiply" />
         ) : (
           <span className="display text-2xl leading-none text-ink/80 lg:text-3xl">{name}</span>
         )}

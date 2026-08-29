@@ -28,7 +28,7 @@ export function Speakers() {
                 {/* portrait */}
                 <div
                   className={`order-1 lg:col-span-4 ${
-                    flip ? "lg:order-2 lg:col-start-9" : "lg:col-start-1"
+                    flip ? "lg:order-2 lg:col-start-9 lg:row-start-1" : "lg:col-start-1 lg:row-start-1"
                   }`}
                 >
                   <Portrait src={s.photo} name={s.name} />
@@ -40,7 +40,7 @@ export function Speakers() {
                 {/* type block, deliberately overlapping the portrait column on desktop */}
                 <div
                   className={`order-2 lg:col-span-8 ${
-                    flip ? "lg:order-1 lg:col-start-1 lg:pr-[6vw]" : "lg:col-start-4 lg:-ml-[6vw]"
+                    flip ? "lg:order-1 lg:col-start-1 lg:row-start-1 lg:pr-[6vw]" : "lg:col-start-4 lg:row-start-1 lg:-ml-[6vw]"
                   }`}
                 >
                   <h3 className="display text-[12vw] leading-[0.82] lg:text-[7vw]">{s.name}</h3>

@@ -7,8 +7,8 @@ export function Contact() {
       id="contact"
       className="relative isolate overflow-hidden bg-ink px-4 pt-16 pb-10 text-paper sm:px-6 lg:px-8 lg:pt-28"
     >
-      <Cloud depth={2} variant={1} className="top-[-15%] left-[-25%] w-[110%] lg:w-[70%]" opacity={0.2} />
-      <Cloud depth={1} variant={1} desktopOnly className="bottom-[10%] right-[-20%] w-[55%]" opacity={0.14} flip />
+      <Cloud depth={2} variant={1} className="top-[-15%] left-[-25%] w-[110%] lg:w-[70%]" opacity={0.14} blend />
+      <Cloud depth={1} variant={1} desktopOnly className="bottom-[10%] right-[-20%] w-[55%]" opacity={0.1} blend flip />
 
       <div className="mx-auto max-w-[1600px]">
         <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-paper/50">
