@@ -4,20 +4,16 @@ import { faq } from "@/data/event";
 
 export function Faq() {
   return (
-    <section id="faq" className="relative isolate overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-28">
-      <Cloud depth={3} variant={2} className="top-[15%] right-[-30%] w-[100%] lg:w-[60%]" />
+    <section id="faq" className="faq-section relative isolate overflow-hidden px-4 sm:px-6 lg:px-8">
+      <Cloud depth={3} variant={2} className="top-[12%] right-[-32%] w-[105%] lg:w-[62%]" opacity={0.16} />
 
       <div className="mx-auto max-w-[1600px]">
         <SectionMark index="06" title="Questions" note="Still unsure? Write to us" />
 
-        <div className="mt-8 grid gap-10 lg:grid-cols-12 lg:gap-8">
-          <h2 className="display text-[13vw] leading-[0.8] lg:col-span-4 lg:text-[7vw]">
-            Practical
-            <br />
-            <span className="text-pink italic">things</span>
-          </h2>
+        <h2 className="faq-heading display mx-auto">FAQ</h2>
 
-          <div className="lg:col-span-8">
+        <div className="faq-layout grid gap-10 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-8 lg:col-start-3">
             <dl className="border-t border-ink/25">
               {faq.map((item, i) => (
                 <Reveal as="div" key={item.q} delay={i * 25}>

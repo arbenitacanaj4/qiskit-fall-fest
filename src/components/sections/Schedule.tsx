@@ -6,42 +6,52 @@ import { schedule } from "@/data/event";
 export function Schedule() {
   const [day, setDay] = useState(schedule[0]!.id);
   const current = schedule.find((d) => d.id === day) ?? schedule[0]!;
+  const currentIndex = schedule.findIndex((d) => d.id === current.id);
+
+  function selectAdjacentDay(direction: -1 | 1) {
+    const next = schedule[(currentIndex + direction + schedule.length) % schedule.length];
+    if (next) setDay(next.id);
+  }
 
   return (
-    <section id="schedule" className="relative isolate overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-28">
-      <Cloud depth={3} variant={1} className="top-[20%] right-[-40%] w-[120%] lg:w-[70%]" opacity={0.16} />
+    <section id="schedule" className="programme-section relative isolate overflow-hidden px-4 sm:px-6 lg:px-8">
+      <Cloud depth={3} variant={1} className="top-[-24%] right-[-38%] w-[125%] lg:w-[76%]" opacity={0.24} />
+      <Cloud depth={2} variant={2} desktopOnly className="bottom-[8%] left-[-34%] w-[62%]" opacity={0.16} flip />
 
       <div className="mx-auto max-w-[1600px]">
         <SectionMark index="02" title="Programme" note="Subject to change" />
 
-        <div className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <h2 className="display text-[13vw] leading-[0.8] lg:text-[8vw]">
-            Two days,
-            <br />
-            <span className="text-pink">one circuit.</span>
-          </h2>
-
-          {/* day switch: two tabs, print-programme flavour */}
-          <div role="tablist" aria-label="Schedule days" className="flex w-full border-t border-ink/20 lg:w-auto">
+        <div className="programme-selector mx-auto text-center">
+          <p className="mono-label">October 2026</p>
+          <div role="tablist" aria-label="Schedule days" className="programme-days">
             {schedule.map((d) => {
               const selected = d.id === day;
+              const dateNumber = d.date.replace(/\D/g, "");
               return (
                 <button
                   key={d.id}
+                  id={`${d.id}-tab`}
                   role="tab"
+                  type="button"
                   aria-selected={selected}
+                  aria-controls={`${d.id}-schedule`}
+                  tabIndex={selected ? 0 : -1}
                   onClick={() => setDay(d.id)}
-                  className={`flex-1 border-r border-b border-ink/20 px-5 py-4 text-left transition-colors first:border-l lg:flex-none lg:px-8 ${
-                    selected ? "bg-ink text-paper" : "hover:bg-peri/60"
-                  }`}
+                  onKeyDown={(event) => {
+                    if (event.key === "ArrowLeft") {
+                      event.preventDefault();
+                      selectAdjacentDay(-1);
+                    }
+                    if (event.key === "ArrowRight") {
+                      event.preventDefault();
+                      selectAdjacentDay(1);
+                    }
+                  }}
+                  className={`programme-day ${selected ? "programme-day--active" : ""}`}
                 >
-                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase opacity-70">
-                    {d.day}
-                  </span>
-                  <span className="display mt-1 block text-4xl lg:text-5xl">{d.date}</span>
-                  <span className="font-mono text-[10px] tracking-[0.14em] uppercase opacity-70">
-                    {d.weekday}
-                  </span>
+                  <span className="programme-day__label mono-label">{d.day}</span>
+                  <span className="programme-day__number display">{dateNumber}</span>
+                  <span className="programme-day__weekday mono-label">{d.weekday}</span>
                 </button>
               );
             })}
@@ -49,7 +59,13 @@ export function Schedule() {
         </div>
 
         {/* timeline: rows on a rule, circuit line running through the times */}
-        <div className="mt-12">
+        <div
+          key={current.id}
+          id={`${current.id}-schedule`}
+          role="tabpanel"
+          aria-labelledby={`${current.id}-tab`}
+          className="programme-timeline"
+        >
           <div className="mono-label hidden grid-cols-[7rem_1fr_15rem_13rem] gap-6 pb-2 lg:grid">
             <span>Time</span>
             <span>Event</span>
@@ -91,7 +107,7 @@ export function Schedule() {
           </ol>
 
           <p className="mono-label mt-4">
-            All times CET · Detailed session descriptions published closer to the event
+            Tentative times CET · Detailed session descriptions published closer to the event
           </p>
         </div>
       </div>

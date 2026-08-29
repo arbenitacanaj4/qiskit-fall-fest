@@ -31,7 +31,7 @@ type CloudProps = {
   depth?: 1 | 2 | 3;
   variant?: 1 | 2;
   className?: string | undefined;
-  /** hidden below lg — use for extra desktop-only layers */
+  /** hidden below lg, use for extra desktop-only layers */
   desktopOnly?: boolean | undefined;
   opacity?: number | undefined;
   flip?: boolean | undefined;
@@ -83,9 +83,9 @@ export function Cloud({
   return (
     <div
       aria-hidden="true"
-      className={`pointer-events-none absolute -z-10 select-none will-change-transform ${
+      className={`atmospheric-cloud atmospheric-cloud--depth-${depth} atmospheric-cloud--variant-${variant} pointer-events-none absolute -z-10 select-none will-change-transform ${
         desktopOnly ? "hidden lg:block" : ""
-      } ${className}`}
+      } ${blend ? "atmospheric-cloud--blend" : ""} ${className}`}
     >
       <div ref={ref}>
         <img
@@ -95,7 +95,7 @@ export function Cloud({
           decoding="async"
           width={1536}
           height={variant === 1 ? 896 : 768}
-          className={`h-auto w-full ${blend ? "mix-blend-screen" : ""}`}
+          className={`atmospheric-cloud__image h-auto w-full ${blend ? "mix-blend-screen" : ""}`}
           style={{
             opacity: base,
             filter: `blur(${depth === 1 ? 6 : depth === 2 ? 14 : 26}px) saturate(${depth === 3 ? 0.6 : 1})`,
@@ -158,7 +158,7 @@ export function Reveal({
   );
 }
 
-/** |0⟩ → |1⟩ easter egg. */
+/** |0⟩ to |1⟩ easter egg. */
 export function Qubit({ className = "" }: { className?: string | undefined }) {
   const [one, setOne] = useState(false);
   return (
@@ -167,7 +167,7 @@ export function Qubit({ className = "" }: { className?: string | undefined }) {
       onClick={() => setOne((v) => !v)}
       onMouseEnter={() => setOne(true)}
       onMouseLeave={() => setOne(false)}
-      aria-label={`Qubit state ${one ? "one" : "zero"} — toggle`}
+      aria-label={`Qubit state ${one ? "one" : "zero"} toggle`}
       className={`font-mono tabular-nums text-ink/60 transition-colors hover:text-pink ${className}`}
     >
       {one ? "|1⟩" : "|0⟩"}

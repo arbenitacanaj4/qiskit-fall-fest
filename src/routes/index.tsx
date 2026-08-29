@@ -10,9 +10,9 @@ import { Faq } from "@/components/sections/Faq";
 import { Partners } from "@/components/sections/Partners";
 import { Contact } from "@/components/sections/Contact";
 
-const title = "Qiskit Fall Fest 2026 — Budapest, BME · Oct 29—30";
+const title = "Qiskit Fall Fest 2026, Budapest, BME · Oct 29 / 30";
 const description =
-  "A free, student-organized Qiskit Fall Fest at Budapest University of Technology and Economics, October 29—30, 2026. Talks, Qiskit workshops and a coding challenge. Register now.";
+  "A free, student-organized Qiskit Fall Fest at Budapest University of Technology and Economics, October 29 to 30, 2026. Talks and a hackathon. Register now.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

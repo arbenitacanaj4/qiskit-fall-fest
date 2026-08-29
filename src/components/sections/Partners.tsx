@@ -1,20 +1,14 @@
+import { Cloud } from "@/components/atmosphere";
 import { SectionMark } from "@/components/SectionMark";
 import { partners } from "@/data/event";
-import ibmQuantum from "@/assets/ibm-quantum-logotype.jpg.asset.json";
 
-/** Logo slot: replace `logo` with an imported asset URL, layout stays put. */
-function LogoSlot({ name, note, logo }: { name: string; note: string; logo?: string | undefined }) {
+function LogoSlot({ name, note }: { name: string; note: string }) {
   return (
     <li className="flex min-h-[9rem] flex-col justify-between gap-4 border-t border-ink/25 pt-4">
       <div className="flex min-h-16 items-center">
-        {logo ? (
-          <img src={logo} alt={name} loading="lazy" className="max-h-14 w-auto max-w-[70%] mix-blend-multiply" />
-        ) : (
-          <span className="display text-2xl leading-none text-ink/80 lg:text-3xl">{name}</span>
-        )}
+        <span className="display text-2xl leading-none text-ink/80 lg:text-3xl">{name}</span>
       </div>
       <div>
-        {logo && <p className="display text-lg leading-none text-ink/70">{name}</p>}
         <p className="mono-label mt-1">{note}</p>
       </div>
     </li>
@@ -23,16 +17,17 @@ function LogoSlot({ name, note, logo }: { name: string; note: string; logo?: str
 
 export function Partners() {
   return (
-    <section className="relative isolate px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+    <section className="partners-section relative isolate overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+      <Cloud depth={3} variant={2} className="top-[-34%] left-[-32%] w-[120%] lg:w-[58%]" opacity={0.18} flip />
+
       <div className="mx-auto max-w-[1600px]">
-        <SectionMark index="07" title="Support" note="Official logos to be added" />
+        <SectionMark index="07" title="Support" note="Current supporters · Sponsors TBC" />
         <ul className="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {partners.map((p) => (
             <LogoSlot
               key={p.name}
               name={p.name}
               note={p.note}
-              logo={p.official ? ibmQuantum.url : undefined}
             />
           ))}
         </ul>

@@ -1,5 +1,6 @@
 import { Cloud, Qubit } from "@/components/atmosphere";
 import { REGISTER_URL, contact, event } from "@/data/event";
+import ibmQuantumLogoReverse from "@/assets/IBM_Quantum_logotype_rev_RGB.png";
 
 export function Contact() {
   return (
@@ -24,8 +25,8 @@ export function Contact() {
 
         <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-6">
-            <p className="display text-[13vw] leading-[0.8] lg:text-[7vw]">29—30</p>
-            <p className="font-mono text-sm tracking-[0.18em] uppercase text-paper/70">
+            <p className="contact-date-number display">29<span>/</span>30</p>
+            <p className="contact-date-meta font-mono text-sm tracking-[0.18em] uppercase text-paper/70">
               Oct {event.year} · {event.hostShort}, Budapest
             </p>
             <a
@@ -40,7 +41,7 @@ export function Contact() {
               </span>
             </a>
             <p className="mt-3 font-mono text-[11px] tracking-[0.16em] uppercase text-paper/45">
-              Placeholder form URL — replace in src/data/event.ts
+              Placeholder form URL, replace in src/data/event.ts
             </p>
           </div>
 
@@ -71,19 +72,21 @@ export function Contact() {
                   </a>
                 </dd>
               </div>
-              <div className="grid grid-cols-[6rem_1fr] gap-4 py-3">
-                <dt className="font-mono text-[11px] tracking-[0.18em] uppercase text-paper/50">
-                  Organizer
-                </dt>
-                <dd className="text-sm leading-snug text-paper/85">{contact.organizer}</dd>
-              </div>
             </dl>
           </div>
         </div>
 
-        <footer className="mt-16 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 border-t border-paper/25 pt-4 font-mono text-[11px] tracking-[0.16em] uppercase text-paper/45">
+        <footer className="contact-footer mt-16 border-t border-paper/25 pt-4 font-mono text-[11px] tracking-[0.16em] uppercase text-paper/45">
           <p>Qiskit Fall Fest 2026 · Budapest edition</p>
-          <p>Student organized · Supported by Qiskit / IBM Quantum</p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <span>Student organized · Supported by</span>
+            <img
+              src={ibmQuantumLogoReverse}
+              alt="IBM Quantum"
+              loading="lazy"
+              className="h-5 w-auto opacity-70"
+            />
+          </div>
           <p className="text-paper/60">
             state: <Qubit className="text-paper/60" />
           </p>

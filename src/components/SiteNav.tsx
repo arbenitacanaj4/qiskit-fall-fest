@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { nav, REGISTER_URL, event } from "@/data/event";
+import qiskitMark from "@/assets/qiskit_black.png";
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
@@ -37,11 +38,9 @@ export function SiteNav() {
         <a
           href="#home"
           className="flex min-w-0 flex-1 items-center gap-2 py-3 sm:gap-3 lg:flex-none"
-          aria-label="Qiskit Fall Fest Budapest — home"
+          aria-label="Qiskit Fall Fest Budapest home"
         >
-          <span className="grid size-6 shrink-0 place-items-center rounded-full bg-pink" aria-hidden="true">
-            <span className="block size-2 rounded-full bg-paper" />
-          </span>
+          <img src={qiskitMark} alt="" className="size-7 shrink-0" aria-hidden="true" />
           <span className="display truncate text-[15px] leading-none tracking-[0.04em] sm:text-lg">
             Qiskit Fall Fest <span className="text-pink">Budapest</span>
           </span>
