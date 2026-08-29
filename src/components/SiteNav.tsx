@@ -36,7 +36,7 @@ export function SiteNav() {
         {/* wordmark */}
         <a
           href="#home"
-          className="flex min-w-0 shrink-0 items-center gap-3 py-3"
+          className="flex min-w-0 flex-1 items-center gap-2 py-3 sm:gap-3 lg:flex-none"
           aria-label="Qiskit Fall Fest Budapest — home"
         >
           <span className="grid size-6 shrink-0 place-items-center rounded-full bg-pink" aria-hidden="true">
@@ -73,7 +73,7 @@ export function SiteNav() {
           href={REGISTER_URL}
           target="_blank"
           rel="noreferrer"
-          className="ml-auto flex shrink-0 items-center gap-2 bg-pink px-4 font-mono text-[11px] tracking-[0.18em] text-paper uppercase transition-colors hover:bg-ink lg:ml-0 lg:px-7"
+          className="ml-auto flex shrink-0 items-center gap-2 bg-pink px-3 sm:px-4 font-mono text-[11px] tracking-[0.18em] text-paper uppercase transition-colors hover:bg-ink lg:ml-0 lg:px-7"
         >
           Register <span aria-hidden="true">↗</span>
         </a>
@@ -83,7 +83,7 @@ export function SiteNav() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="mobile-menu"
-          className="flex shrink-0 items-center gap-2 border-l border-ink/15 pl-4 font-mono text-[11px] tracking-[0.18em] uppercase lg:hidden"
+          className="flex shrink-0 items-center border-l border-ink/15 pl-3 font-mono text-[10px] tracking-[0.14em] uppercase sm:pl-4 sm:text-[11px] lg:hidden"
         >
           {open ? "Close" : "Menu"}
         </button>
