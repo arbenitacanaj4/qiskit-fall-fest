@@ -19,6 +19,15 @@
  */
 
 @theme inline {
+  --font-display: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-pink: var(--pink);
+  --color-peri: var(--peri);
+  --color-grape: var(--grape);
+  --color-violet-accent: var(--violet-accent);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -26,6 +35,7 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -62,26 +72,35 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --radius: 0.25rem;
+
+  /* Fall Fest palette */
+  --paper: oklch(0.985 0.006 90);
+  --ink: oklch(0.16 0.03 300);
+  --pink: oklch(0.68 0.24 350);
+  --peri: oklch(0.9 0.045 275);
+  --grape: oklch(0.28 0.11 300);
+  --violet-accent: oklch(0.5 0.2 285);
+
+  --background: var(--paper);
+  --foreground: var(--ink);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: var(--ink);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --popover-foreground: var(--ink);
+  --primary: var(--pink);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: var(--peri);
+  --secondary-foreground: var(--grape);
+  --muted: oklch(0.955 0.012 285);
+  --muted-foreground: oklch(0.46 0.04 300);
+  --accent: var(--peri);
+  --accent-foreground: var(--grape);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.2 0.03 300 / 18%);
+  --input: oklch(0.2 0.03 300 / 24%);
+  --ring: var(--pink);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -140,5 +159,88 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    font-synthesis-weight: none;
+  }
+
+  ::selection {
+    background: var(--pink);
+    color: var(--paper);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--pink);
+    outline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Oversized condensed display type: the site's loudest voice. */
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 0.82;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+@utility mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--ink) 60%, transparent);
+}
+
+@utility rule-ink {
+  border-top: 1px solid color-mix(in oklab, var(--ink) 22%, transparent);
+}
+
+@utility marquee-track {
+  animation: ffmarquee 38s linear infinite;
+}
+
+@keyframes ffmarquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes ffflight {
+  0% {
+    transform: translate3d(-10%, 20px, 0) rotate(-6deg);
+  }
+  100% {
+    transform: translate3d(120%, -40px, 0) rotate(4deg);
+  }
+}
+
+@utility bird-flight {
+  animation: ffflight 26s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .bird-flight {
+    animation: none;
   }
 }
