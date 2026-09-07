@@ -10,15 +10,13 @@ export function Team() {
       <Cloud depth={2} variant={1} desktopOnly className="bottom-[-14%] right-[-30%] w-[72%]" opacity={0.22} flip />
 
       <div className="mx-auto max-w-[1600px]">
-        <SectionMark index="05" title="Team" note="Students, not a conference bureau" />
+        <SectionMark index="05" title="Team" />
 
         <div className="team-heading">
           <h2 className="team-title display mx-auto">
             Made by <span className="text-pink">students</span>
           </h2>
-          <p className="team-note font-mono text-[13px] leading-relaxed text-ink/70">
-            {"// contact sheet, organizing crew, BME edition 2026"}
-          </p>
+        
         </div>
 
         {/* contact sheet: designed for exactly three organizers */}

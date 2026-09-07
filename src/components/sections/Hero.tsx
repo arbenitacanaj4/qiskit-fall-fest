@@ -8,7 +8,7 @@ export function Hero() {
       <div className="hero-poster__inner mx-auto max-w-[1600px]">
         {/* top line: status strip */}
         <div className="hero-poster__status flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2">
-          <p className="mono-label">Official event · Supported by Qiskit / IBM Quantum</p>
+          <p className="mono-label">Official event · Supported by IBM Quantum</p>
           <p className="mono-label">
             47.4735°N 19.0596°E <span className="mx-2 text-ink/25">/</span> <Qubit />
           </p>

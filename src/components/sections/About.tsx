@@ -8,7 +8,7 @@ export function About() {
       <Cloud depth={3} variant={2} desktopOnly className="bottom-[-36%] right-[-22%] w-[78%]" opacity={0.25} />
 
       <div className="mx-auto max-w-[1600px]">
-        <SectionMark index="01" title="About" note="Global series · Local edition" />
+        <SectionMark index="01" title="About" />
 
         <Reveal as="h2" className="about-headline mx-auto">
           <span className="about-headline__line display block">
@@ -51,9 +51,7 @@ export function About() {
               Fest, this year from among more than 900 applications worldwide. Two days of quantum
               computing, all in English, free to attend, with no prior quantum experience required.
             </p>
-            <p className="about-column__meta font-mono text-xs leading-relaxed text-ink/50">
-              {"// event details are placeholders until confirmed"}
-            </p>
+          
           </Reveal>
         </div>
 

@@ -39,9 +39,7 @@ export function Contact() {
               Register
               <ArrowIcon className="size-[0.64em] transition-transform group-hover:translate-x-2" />
             </a>
-            <p className="mt-3 font-mono text-[11px] tracking-[0.16em] uppercase text-paper/45">
-              Placeholder form URL, replace in src/data/event.ts
-            </p>
+            
           </div>
 
           <div className="lg:col-span-4 lg:col-start-9">
@@ -78,13 +76,8 @@ export function Contact() {
         <footer className="contact-footer mt-16 border-t border-paper/25 pt-4 font-mono text-[11px] tracking-[0.16em] uppercase text-paper/45">
           <p>Qiskit Fall Fest 2026 · Budapest edition</p>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <span>Student organized · Supported by</span>
-            <img
-              src={ibmQuantumLogoReverse}
-              alt="IBM Quantum"
-              loading="lazy"
-              className="h-5 w-auto opacity-70"
-            />
+            <span>Student organized · Supported by IBM Quantum</span>
+        
           </div>
           <p className="text-paper/60">
             state: <Qubit className="text-paper/60" />
