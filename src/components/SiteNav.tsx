@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ArrowIcon } from "@/components/ArrowIcon";
 import { nav, REGISTER_URL, event } from "@/data/event";
 import qiskitMark from "@/assets/qiskit_black.png";
 
@@ -37,7 +38,7 @@ export function SiteNav() {
         {/* wordmark */}
         <a
           href="#home"
-          className="flex min-w-0 flex-1 items-center gap-2 py-3 sm:gap-3 lg:flex-none"
+          className="flex min-w-0 flex-1 items-center gap-2 py-3 sm:gap-3 xl:flex-none"
           aria-label="Qiskit Fall Fest Budapest home"
         >
           <img src={qiskitMark} alt="" className="size-7 shrink-0" aria-hidden="true" />
@@ -47,7 +48,7 @@ export function SiteNav() {
         </a>
 
         {/* desktop: inline editorial index, no floating pill */}
-        <nav aria-label="Sections" className="hidden flex-1 items-stretch justify-end lg:flex">
+        <nav aria-label="Sections" className="hidden flex-1 items-stretch justify-end xl:flex">
           <ul className="flex items-stretch">
             {nav.map((item, i) => (
               <li key={item.href} className="flex">
@@ -72,9 +73,9 @@ export function SiteNav() {
           href={REGISTER_URL}
           target="_blank"
           rel="noreferrer"
-          className="ml-auto flex shrink-0 items-center gap-2 bg-pink px-3 sm:px-4 font-mono text-[11px] tracking-[0.18em] text-paper uppercase transition-colors hover:bg-ink lg:ml-0 lg:px-7"
+          className="ml-auto flex shrink-0 items-center gap-2 bg-pink px-3 font-mono text-[11px] tracking-[0.18em] text-paper uppercase transition-colors hover:bg-ink sm:px-4 xl:ml-0 xl:px-7"
         >
-          Register <span aria-hidden="true">↗</span>
+          Register <ArrowIcon className="size-3" />
         </a>
 
         <button
@@ -82,7 +83,7 @@ export function SiteNav() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="mobile-menu"
-          className="flex shrink-0 items-center border-l border-ink/15 pl-3 font-mono text-[10px] tracking-[0.14em] uppercase sm:pl-4 sm:text-[11px] lg:hidden"
+          className="flex shrink-0 items-center border-l border-ink/15 pl-3 font-mono text-[10px] tracking-[0.14em] uppercase sm:pl-4 sm:text-[11px] xl:hidden"
         >
           {open ? "Close" : "Menu"}
         </button>
@@ -91,7 +92,7 @@ export function SiteNav() {
       {open && (
         <div
           id="mobile-menu"
-          className="fixed inset-x-0 top-[57px] bottom-0 z-50 overflow-y-auto bg-paper lg:hidden"
+          className="fixed inset-x-0 top-[57px] bottom-0 z-50 overflow-y-auto bg-paper xl:hidden"
         >
           <ul className="px-4 pt-2 pb-10 sm:px-6">
             {nav.map((item, i) => (

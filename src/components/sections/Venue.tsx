@@ -1,4 +1,5 @@
 import { Cloud, Reveal } from "@/components/atmosphere";
+import { ArrowIcon } from "@/components/ArrowIcon";
 import { SectionMark } from "@/components/SectionMark";
 import { venue } from "@/data/event";
 
@@ -8,36 +9,35 @@ export function Venue() {
       <Cloud depth={3} variant={1} className="top-[-20%] left-[-10%] w-[100%] lg:w-[65%]" opacity={0.22} />
 
       <div className="mx-auto max-w-[1600px]">
-        <SectionMark index="04" title="Venue" note="Budapest · Hungary" />
+        <SectionMark index="03" title="Venue" note="Budapest · Hungary" />
 
-        <div className="mt-10 grid gap-12 lg:grid-cols-12 lg:gap-8">
+        <div className="venue-layout mt-10 grid gap-12 lg:grid-cols-12 lg:gap-8">
           <Reveal className="lg:col-span-7">
-            <h2 className="display text-[10vw] leading-[0.86] lg:text-[5.6vw]">
+            <h2 className="venue-title display leading-[0.86]">
               Budapest University of Technology and Economics
             </h2>
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-ink/80">
+            <p className="venue-copy mt-6 max-w-lg leading-relaxed text-ink/80">
               Two days on campus. Talks, a hackathon, coffee and conversation in between.
             </p>
           </Reveal>
 
-          <Reveal delay={100} className="lg:col-span-4 lg:col-start-9">
+          <Reveal delay={100} className="venue-details lg:col-span-5 lg:col-start-8">
             <dl className="divide-y divide-ink/20 border-y border-ink/25">
               {[
                 ["Institution", venue.university],
                 ["Building", venue.building],
                 ["Room", venue.room],
-                ["Address", venue.address],
               ].map(([k, v]) => (
-                <div key={k} className="grid grid-cols-[6.5rem_1fr] gap-4 py-3">
+                <div key={k} className="venue-detail-row grid gap-3 py-4 sm:grid-cols-[8rem_1fr]">
                   <dt className="mono-label">{k}</dt>
-                  <dd className="text-sm leading-snug">{v}</dd>
+                  <dd className="venue-detail-value leading-tight">{v}</dd>
                 </div>
               ))}
             </dl>
 
-            <div className="mt-6">
+            <div className="venue-transport mt-7">
               <p className="mono-label">Getting there</p>
-              <ul className="mt-2 space-y-1 font-mono text-[13px] text-ink/75">
+              <ul className="mt-3 space-y-2 font-mono text-ink/80">
                 {venue.transport.map((t) => (
                   <li key={t}>{t}</li>
                 ))}
@@ -48,9 +48,9 @@ export function Venue() {
               href={venue.mapUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-6 inline-flex items-baseline gap-2 border-b-2 border-pink pb-1 font-display text-2xl font-bold uppercase transition-colors hover:border-ink"
+              className="mt-7 inline-flex items-center gap-2 border-b-2 border-pink pb-1 font-display text-2xl font-bold uppercase transition-colors hover:border-ink"
             >
-              Open in maps <span aria-hidden="true">↗</span>
+              Open in maps <ArrowIcon className="size-[0.72em] text-pink" />
             </a>
           </Reveal>
         </div>

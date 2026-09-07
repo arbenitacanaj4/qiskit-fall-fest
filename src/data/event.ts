@@ -20,8 +20,8 @@ export const nav = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Schedule", href: "#schedule" },
-  { label: "Speakers", href: "#speakers" },
   { label: "Venue", href: "#venue" },
+  { label: "Speakers", href: "#speakers" },
   { label: "Team", href: "#team" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
@@ -31,7 +31,6 @@ export type ScheduleItem = {
   time: string;
   title: string;
   host: string;
-  location: string;
   kind?: "break" | "talk" | "lab" | "milestone";
 };
 
@@ -42,12 +41,12 @@ export const schedule: { id: string; day: string; date: string; weekday: string;
     date: "Oct 29",
     weekday: "Thursday",
     items: [
-      { time: "15:00", title: "Session 01", host: "TBA", location: "BME, Building I, Room IB023", kind: "talk" },
-      { time: "15:45", title: "Session 02", host: "TBA", location: "BME, Building I, Room IB023", kind: "talk" },
-      { time: "16:30", title: "Break / refreshments", host: "TBA", location: "BME, Building I, Room IB023", kind: "break" },
-      { time: "17:15", title: "Session 03", host: "TBA", location: "BME, Building I, Room IB023", kind: "talk" },
-      { time: "18:00", title: "Session 04", host: "TBA", location: "BME, Building I, Room IB023", kind: "talk" },
-      { time: "18:45", title: "Networking", host: "Everyone", location: "BME, Building I, Room IB023", kind: "milestone" },
+      { time: "15:00", title: "Session 01", host: "TBA", kind: "talk" },
+      { time: "15:45", title: "Session 02", host: "TBA", kind: "talk" },
+      { time: "16:30", title: "Break / refreshments", host: "TBA", kind: "break" },
+      { time: "17:15", title: "Session 03", host: "TBA", kind: "talk" },
+      { time: "18:00", title: "Session 04", host: "TBA", kind: "talk" },
+      { time: "18:45", title: "Networking", host: "Everyone", kind: "milestone" },
     ],
   },
   {
@@ -56,11 +55,11 @@ export const schedule: { id: string; day: string; date: string; weekday: string;
     date: "Oct 30",
     weekday: "Friday",
     items: [
-      { time: "10:00", title: "Hackathon begins", host: "Participants", location: "BME, Building I, Room IB023", kind: "lab" },
-      { time: "13:30", title: "Lunch break", host: "TBA", location: "BME, Building I, Room IB023", kind: "break" },
-      { time: "14:15", title: "Hackathon continues", host: "Participants", location: "BME, Building I, Room IB023", kind: "lab" },
-      { time: "16:00", title: "Hackathon ends", host: "Participants", location: "BME, Building I, Room IB023", kind: "milestone" },
-      { time: "16:15", title: "Award ceremony", host: "TBA", location: "BME, Building I, Room IB023", kind: "milestone" },
+      { time: "10:00", title: "Hackathon begins", host: "", kind: "lab" },
+      { time: "13:30", title: "Lunch break", host: "", kind: "break" },
+      { time: "14:15", title: "Hackathon continues", host: "", kind: "lab" },
+      { time: "16:00", title: "Hackathon ends", host: "", kind: "milestone" },
+      { time: "16:15", title: "Award ceremony", host: "", kind: "milestone" },
     ],
   },
 ];

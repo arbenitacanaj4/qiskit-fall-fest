@@ -1,4 +1,5 @@
 import { Cloud, Reveal } from "@/components/atmosphere";
+import { ArrowIcon } from "@/components/ArrowIcon";
 import { SectionMark } from "@/components/SectionMark";
 import { Portrait } from "@/components/Portrait";
 import { speakers } from "@/data/event";
@@ -10,7 +11,7 @@ export function Speakers() {
       <Cloud depth={1} variant={1} desktopOnly className="top-[50%] right-[-26%] w-[54%]" opacity={0.18} />
 
       <div className="mx-auto max-w-[1600px]">
-        <SectionMark index="03" title="Speakers" note="Line-up in progress" />
+        <SectionMark index="04" title="Speakers" note="Line-up in progress" />
 
         <h2 className="speakers-heading display mx-auto">
           <span>Meet the</span>
@@ -21,15 +22,10 @@ export function Speakers() {
           {speakers.map((s, i) => {
             const flip = i % 2 === 1;
             return (
-              <Reveal
-                key={s.name}
-                className="speaker-entry grid items-start gap-6 lg:grid-cols-12 lg:gap-8"
-              >
+              <Reveal key={s.name} className="speaker-entry">
                 {/* portrait */}
                 <div
-                  className={`speaker-entry__portrait order-1 lg:col-span-3 lg:row-start-1 ${
-                    flip ? "lg:order-2 lg:col-start-10" : "lg:col-start-1"
-                  }`}
+                  className={`speaker-entry__portrait order-1 ${flip ? "lg:order-2" : ""}`}
                 >
                   <Portrait src={s.photo} name={s.name} />
                   <p className="mono-label mt-2">
@@ -39,9 +35,7 @@ export function Speakers() {
 
                 {/* type block, deliberately overlapping the portrait column on desktop */}
                 <div
-                  className={`speaker-entry__content order-2 lg:col-span-7 lg:row-start-1 ${
-                    flip ? "lg:order-1 lg:col-start-2 lg:pr-[2vw]" : "lg:col-start-5 lg:-ml-[2vw]"
-                  }`}
+                  className={`speaker-entry__content order-2 ${flip ? "lg:order-1" : ""}`}
                 >
                   <h3 className="speaker-entry__name display">{s.name}</h3>
                   <p className="mt-3 font-mono text-xs tracking-[0.14em] uppercase text-pink">
@@ -60,7 +54,7 @@ export function Speakers() {
                     rel="noreferrer"
                     className="mt-4 inline-flex items-baseline gap-2 border-b border-ink/40 pb-0.5 font-mono text-xs tracking-[0.16em] uppercase transition-colors hover:border-pink hover:text-pink"
                   >
-                    LinkedIn <span aria-hidden="true">↗</span>
+                    LinkedIn <ArrowIcon className="size-3 text-pink" />
                   </a>
                 </div>
               </Reveal>

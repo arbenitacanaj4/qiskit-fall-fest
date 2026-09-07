@@ -7,7 +7,6 @@ import { Speakers } from "@/components/sections/Speakers";
 import { Venue } from "@/components/sections/Venue";
 import { Team } from "@/components/sections/Team";
 import { Faq } from "@/components/sections/Faq";
-import { Partners } from "@/components/sections/Partners";
 import { Contact } from "@/components/sections/Contact";
 
 const title = "Qiskit Fall Fest 2026, Budapest, BME · Oct 29 / 30";
@@ -36,11 +35,10 @@ function Index() {
         <Hero />
         <About />
         <Schedule />
-        <Speakers />
         <Venue />
+        <Speakers />
         <Team />
         <Faq />
-        <Partners />
         <Contact />
       </main>
     </div>

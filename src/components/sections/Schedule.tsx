@@ -7,6 +7,7 @@ export function Schedule() {
   const [day, setDay] = useState(schedule[0]!.id);
   const current = schedule.find((d) => d.id === day) ?? schedule[0]!;
   const currentIndex = schedule.findIndex((d) => d.id === current.id);
+  const isHackathonDay = current.id === "day-02";
 
   function selectAdjacentDay(direction: -1 | 1) {
     const next = schedule[(currentIndex + direction + schedule.length) % schedule.length];
@@ -66,11 +67,14 @@ export function Schedule() {
           aria-labelledby={`${current.id}-tab`}
           className="programme-timeline"
         >
-          <div className="mono-label hidden grid-cols-[7rem_1fr_15rem_13rem] gap-6 pb-2 lg:grid">
+          <div
+            className={`mono-label hidden gap-6 pb-2 lg:grid ${
+              isHackathonDay ? "grid-cols-[8rem_1fr]" : "grid-cols-[8rem_1fr_14rem]"
+            }`}
+          >
             <span>Time</span>
             <span>Event</span>
-            <span>Speaker / host</span>
-            <span>Location</span>
+            {!isHackathonDay && <span>Speaker / host</span>}
           </div>
 
           <ol className="border-t border-ink/25">
@@ -79,12 +83,16 @@ export function Schedule() {
                 as="li"
                 key={`${current.id}-${item.time}`}
                 delay={i * 40}
-                className="group relative grid grid-cols-[4.5rem_1fr] items-baseline gap-x-4 gap-y-1 border-b border-ink/15 py-5 transition-colors hover:bg-peri/35 lg:grid-cols-[7rem_1fr_15rem_13rem] lg:gap-6"
+                className={`group programme-row relative grid items-baseline gap-x-4 gap-y-1 border-b border-ink/15 py-5 transition-colors hover:bg-peri/35 lg:gap-6 ${
+                  isHackathonDay
+                    ? "programme-row--simple grid-cols-[4.5rem_1fr] lg:grid-cols-[8rem_1fr]"
+                    : "grid-cols-[4.5rem_1fr] lg:grid-cols-[8rem_1fr_14rem]"
+                }`}
               >
                 <span className="font-mono text-sm tabular-nums text-pink lg:text-base">
                   {item.time}
                 </span>
-                <span className="display text-2xl leading-[0.95] sm:text-3xl lg:text-[2.6vw]">
+                <span className="programme-row__title display text-2xl leading-[0.95] sm:text-3xl">
                   {item.title}
                   {item.kind === "break" && (
                     <span className="ml-3 align-middle font-mono text-[10px] tracking-[0.18em] text-ink/40">
@@ -92,12 +100,11 @@ export function Schedule() {
                     </span>
                   )}
                 </span>
-                <span className="col-start-2 font-mono text-xs text-ink/70 lg:col-start-3 lg:text-[13px]">
-                  {item.host}
-                </span>
-                <span className="col-start-2 font-mono text-xs text-ink/55 lg:col-start-4 lg:text-[13px]">
-                  {item.location}
-                </span>
+                {!isHackathonDay && (
+                  <span className="col-start-2 font-mono text-xs text-ink/70 lg:col-start-3 lg:text-[13px]">
+                    {item.host}
+                  </span>
+                )}
                 <span
                   aria-hidden="true"
                   className="pointer-events-none absolute -left-1 top-6 hidden h-2 w-2 rounded-full bg-ink/25 transition-colors group-hover:bg-pink lg:block"

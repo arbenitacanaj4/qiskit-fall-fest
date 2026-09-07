@@ -1,4 +1,5 @@
 import { Cloud, Qubit } from "@/components/atmosphere";
+import { ArrowIcon } from "@/components/ArrowIcon";
 import { REGISTER_URL, contact, event } from "@/data/event";
 import ibmQuantumLogoReverse from "@/assets/IBM_Quantum_logotype_rev_RGB.png";
 
@@ -13,7 +14,7 @@ export function Contact() {
 
       <div className="mx-auto max-w-[1600px]">
         <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-paper/50">
-          08 <span className="mx-2 text-paper/25">/</span> Contact &amp; registration
+          07 <span className="mx-2 text-paper/25">/</span> Contact &amp; registration
         </p>
 
         <h2 className="mt-8">
@@ -36,9 +37,7 @@ export function Contact() {
               className="group mt-8 inline-flex items-baseline gap-4 bg-pink px-6 py-4 font-display text-4xl leading-none font-bold uppercase transition-colors hover:bg-paper hover:text-ink sm:text-6xl"
             >
               Register
-              <span aria-hidden="true" className="transition-transform group-hover:translate-x-2">
-                ↗
-              </span>
+              <ArrowIcon className="size-[0.64em] transition-transform group-hover:translate-x-2" />
             </a>
             <p className="mt-3 font-mono text-[11px] tracking-[0.16em] uppercase text-paper/45">
               Placeholder form URL, replace in src/data/event.ts
@@ -68,7 +67,7 @@ export function Contact() {
                     rel="noreferrer"
                     className="underline hover:text-pink"
                   >
-                    {contact.instagram.label} ↗
+                    {contact.instagram.label} <ArrowIcon className="inline-block size-3 text-pink" />
                   </a>
                 </dd>
               </div>

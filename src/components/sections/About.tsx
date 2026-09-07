@@ -24,7 +24,7 @@ export function About() {
 
         <div className="about-columns grid gap-10 md:grid-cols-3">
           <Reveal className="about-column">
-            <p className="mono-label">01 / Qiskit Fall Fest</p>
+            <p className="about-column__title">01 / Qiskit Fall Fest</p>
             <p className="about-column__body text-ink/85">
               Qiskit Fall Fest is a global series of community-led quantum computing events, hosted
               each autumn by student groups and universities around the world with support from IBM
@@ -34,7 +34,7 @@ export function About() {
           </Reveal>
 
           <Reveal delay={80} className="about-column">
-            <p className="mono-label">02 / Qiskit &amp; IBM Quantum</p>
+            <p className="about-column__title">02 / Qiskit &amp; IBM Quantum</p>
             <p className="about-column__body text-ink/85">
               Qiskit is an open-source SDK for working with quantum computers at the level of
               circuits, operators and primitives. IBM Quantum put real quantum hardware on the cloud
@@ -44,7 +44,7 @@ export function About() {
           </Reveal>
 
           <Reveal delay={160} className="about-column">
-            <p className="mono-label">03 / The BME edition</p>
+            <p className="about-column__title">03 / The BME edition</p>
             <p className="about-column__body text-ink/85">
               Budapest's edition is organized by students at the Budapest University of Technology
               and Economics. For the second year in a row, BME has been selected to host Qiskit Fall

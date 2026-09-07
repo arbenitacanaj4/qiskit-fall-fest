@@ -1,4 +1,5 @@
 import { Qubit } from "@/components/atmosphere";
+import { ArrowIcon } from "@/components/ArrowIcon";
 import { REGISTER_URL, event } from "@/data/event";
 
 export function Hero() {
@@ -65,17 +66,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* date block: a major graphic element, not metadata */}
-        <div className="hero-date-grid grid gap-8 lg:grid-cols-12 lg:gap-6">
-          <div className="lg:col-span-6 lg:col-start-1">
-            <p className="mono-label">October</p>
-            <p className="hero-date-number display mt-1 text-pink">
-              29<span className="hero-date-separator text-ink">/</span>30
-            </p>
-            <p className="mono-label mt-2">2026 · Thursday / Friday</p>
-          </div>
-
-          <div className="hero-intro flex flex-col justify-end lg:col-span-6 lg:col-start-7 xl:col-span-5 xl:col-start-8">
+        <div className="hero-detail-grid grid gap-8 lg:grid-cols-12 lg:gap-6">
+          <div className="hero-intro flex flex-col justify-end lg:col-span-5 lg:col-start-8">
             <p className="hero-intro__copy max-w-md leading-snug text-ink/85 lg:max-w-xl">
               A two-day, student-organized quantum computing festival at the{" "}
               <span className="font-semibold">{event.host}</span>. Part of the global Qiskit Fall
@@ -89,9 +81,7 @@ export function Hero() {
                 className="hero-register group inline-flex items-baseline gap-3 border-b-2 border-pink pb-1 font-display leading-none font-bold uppercase transition-colors hover:border-ink"
               >
                 Register
-                <span className="text-pink transition-transform group-hover:translate-x-1" aria-hidden="true">
-                  ↗
-                </span>
+                <ArrowIcon className="size-[0.62em] text-pink transition-transform group-hover:translate-x-1" />
               </a>
               <span className="mono-label">Free · Places limited</span>
             </div>

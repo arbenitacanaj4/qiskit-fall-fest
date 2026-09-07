@@ -1,4 +1,5 @@
 import { Cloud, Reveal } from "@/components/atmosphere";
+import { ArrowIcon } from "@/components/ArrowIcon";
 import { SectionMark } from "@/components/SectionMark";
 import { Portrait } from "@/components/Portrait";
 import { team } from "@/data/event";
@@ -38,7 +39,7 @@ export function Team() {
                 rel="noreferrer"
                 className="mt-1 inline-block border-b border-ink/40 font-mono text-[11px] tracking-[0.14em] uppercase transition-colors hover:border-pink hover:text-pink"
               >
-                LinkedIn ↗
+                LinkedIn <ArrowIcon className="size-3 text-pink" />
               </a>
             </Reveal>
           ))}
