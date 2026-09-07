@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteNav } from "@/components/SiteNav";
+import { OpeningIntro } from "@/components/OpeningIntro";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Schedule } from "@/components/sections/Schedule";
@@ -30,6 +31,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="bg-paper text-ink">
+      <OpeningIntro />
       <SiteNav />
       <main>
         <Hero />

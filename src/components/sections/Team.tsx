@@ -20,13 +20,13 @@ export function Team() {
         </div>
 
         {/* contact sheet: designed for exactly three organizers */}
-        <ul className="team-grid grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="team-grid grid gap-x-5 gap-y-10 sm:grid-cols-2 md:grid-cols-3">
           {team.map((m, i) => (
             <Reveal
               as="li"
               key={m.name}
               delay={i * 50}
-              className={`team-member ${i === 1 ? "lg:mt-10" : i === 2 ? "sm:col-span-2 sm:mx-auto sm:w-[52%] lg:col-span-1 lg:mx-0 lg:mt-4 lg:w-auto" : ""}`}
+              className={`team-member ${i === 2 ? "sm:col-span-2 sm:mx-auto sm:w-[52%] md:col-span-1 md:mx-0 md:w-auto" : ""}`}
             >
               <Portrait src={m.photo} name={m.name} ratio="aspect-square" className="team-member__portrait" />
               <p className="team-member__name display mt-2 leading-none">{m.name}</p>
@@ -35,7 +35,7 @@ export function Team() {
                 href={m.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-1 inline-block border-b border-ink/40 font-mono text-[11px] tracking-[0.14em] uppercase transition-colors hover:border-pink hover:text-pink"
+                className="team-member__link mt-1 border-b border-ink/40 font-mono text-[11px] tracking-[0.14em] uppercase transition-colors hover:border-pink hover:text-pink"
               >
                 LinkedIn <ArrowIcon className="size-3 text-pink" />
               </a>

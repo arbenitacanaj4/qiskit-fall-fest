@@ -34,16 +34,22 @@ export function SiteNav() {
 
   return (
     <header className="sticky top-0 z-50 bg-paper">
-      <div className="mx-auto flex max-w-[1600px] items-stretch gap-4 border-b border-ink/20 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-[1600px] items-stretch gap-0 border-b border-ink/20 px-3 sm:px-6 lg:px-8 xl:gap-4">
         {/* wordmark */}
         <a
           href="#home"
           className="flex min-w-0 flex-1 items-center gap-2 py-3 sm:gap-3 xl:flex-none"
           aria-label="Qiskit Fall Fest Budapest home"
         >
-          <img src={qiskitMark} alt="" className="size-7 shrink-0" aria-hidden="true" />
+          <img
+            src={qiskitMark}
+            alt=""
+            className="size-7 shrink-0"
+            aria-hidden="true"
+            data-intro-logo-target
+          />
           <span className="display truncate text-[15px] leading-none tracking-[0.04em] sm:text-lg">
-            Qiskit Fall Fest <span className="text-pink">Budapest</span>
+            Qiskit Fall Fest 
           </span>
         </a>
 
@@ -73,9 +79,9 @@ export function SiteNav() {
           href={REGISTER_URL}
           target="_blank"
           rel="noreferrer"
-          className="ml-auto flex shrink-0 items-center gap-2 bg-pink px-3 font-mono text-[11px] tracking-[0.18em] text-paper uppercase transition-colors hover:bg-ink sm:px-4 xl:ml-0 xl:px-7"
+          className="ml-auto flex shrink-0 items-center gap-1.5 bg-pink px-2.5 font-mono text-[10px] tracking-[0.14em] text-paper uppercase transition-colors hover:bg-ink min-[390px]:gap-2 min-[390px]:px-3 min-[390px]:text-[11px] min-[390px]:tracking-[0.18em] sm:px-4 xl:ml-0 xl:px-7"
         >
-          Register <ArrowIcon className="size-3" />
+          Register <ArrowIcon className="size-3 shrink-0" />
         </a>
 
         <button
@@ -83,7 +89,7 @@ export function SiteNav() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="mobile-menu"
-          className="flex shrink-0 items-center border-l border-ink/15 pl-3 font-mono text-[10px] tracking-[0.14em] uppercase sm:pl-4 sm:text-[11px] xl:hidden"
+          className="flex shrink-0 items-center border-l border-ink/15 pl-2.5 font-mono text-[10px] tracking-[0.14em] uppercase min-[390px]:pl-3 sm:pl-4 sm:text-[11px] xl:hidden"
         >
           {open ? "Close" : "Menu"}
         </button>
