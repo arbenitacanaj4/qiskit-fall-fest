@@ -76,7 +76,7 @@ export type Speaker = {
 
 export const speakers: Speaker[] = [
   {
-    name: "Speaker TBC 01",
+    name: "Speaker 01",
     role: "To be announced",
     org: "Speaker line-up TBC",
     bio: "Speaker details and session descriptions will be announced once the programme is confirmed.",
@@ -84,7 +84,7 @@ export const speakers: Speaker[] = [
     linkedin: "https://linkedin.com/in/REPLACE-ME",
   },
   {
-    name: "Speaker TBC 02",
+    name: "Speaker 02",
     role: "To be announced",
     org: "Speaker line-up TBC",
     bio: "Speaker details and session descriptions will be announced once the programme is confirmed.",
@@ -92,7 +92,7 @@ export const speakers: Speaker[] = [
     linkedin: "https://linkedin.com/in/REPLACE-ME",
   },
   {
-    name: "Speaker TBC 03",
+    name: "Speaker 03",
     role: "To be announced",
     org: "Speaker line-up TBC",
     bio: "Speaker details and session descriptions will be announced once the programme is confirmed.",
@@ -100,7 +100,7 @@ export const speakers: Speaker[] = [
     linkedin: "https://linkedin.com/in/REPLACE-ME",
   },
   {
-    name: "Speaker TBC 04",
+    name: "Speaker 04",
     role: "To be announced",
     org: "Speaker line-up TBC",
     bio: "Speaker details and session descriptions will be announced once the programme is confirmed.",
@@ -112,9 +112,9 @@ export const speakers: Speaker[] = [
 export type TeamMember = { name: string; role: string; linkedin: string; photo?: string };
 
 export const team: TeamMember[] = [
-  { name: "Gvantsa Kapanadze", role: "Lead Organizer", linkedin: "https://linkedin.com/in/REPLACE-ME" },
-  { name: "Rodina Osman", role: "Organizer", linkedin: "https://linkedin.com/in/REPLACE-ME" },
-  { name: "Arbenite Canaj", role: "Organizer", linkedin: "https://linkedin.com/in/REPLACE-ME" },
+  { name: "Gvantsa Kapanadze", role: "Lead Organizer", linkedin: "https://www.linkedin.com/in/gvantsakapanadze/" },
+  { name: "Rodina Osman", role: "Organizer", linkedin: "https://www.linkedin.com/in/rodina-osman/" },
+  { name: "Arbenite Canaj", role: "Organizer", linkedin: "https://www.linkedin.com/in/arbenite-canaj/" },
 ];
 
 export const venue = {
