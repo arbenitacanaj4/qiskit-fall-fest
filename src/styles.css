@@ -284,7 +284,6 @@
     mix-blend-mode: multiply;
     filter: saturate(0.72) contrast(0.86) brightness(1.02);
     opacity: var(--hero-art-opacity);
-    animation: artwork-drift 58s ease-in-out infinite alternate;
     mask-image:
       linear-gradient(to bottom, transparent 0%, black 12%, black 68%, transparent 100%),
       linear-gradient(to right, transparent 0%, black 10%, black 88%, transparent 100%);
@@ -307,13 +306,11 @@
     z-index: 100;
     pointer-events: none;
     background: var(--paper);
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
   }
 
   .opening-intro--active {
-    opacity: 1;
-    visibility: visible;
     animation: intro-field-release 1480ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
@@ -321,7 +318,8 @@
     --intro-size: 92px;
     --intro-x: 0px;
     --intro-y: 0px;
-    --intro-scale: 0.3;
+    --intro-scale-x: 0.3;
+    --intro-scale-y: 0.3;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -333,20 +331,14 @@
   }
 
   .opening-intro--active .opening-intro__mark {
-    animation: intro-logo-flight 1320ms cubic-bezier(0.76, 0, 0.24, 1) both;
-  }
-
-  @media (max-width: 47.9375rem) {
-    .opening-intro--active .opening-intro__mark {
-      animation-duration: 1200ms;
-    }
+    animation: intro-logo-flight 1320ms cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   .intro-running body {
     overflow-x: hidden;
   }
 
-  .intro-running [data-intro-logo-target] {
+  .intro-running:not(.intro-logo-landed) [data-intro-logo-target] {
     opacity: 0;
   }
 
@@ -360,9 +352,7 @@
   }
 
   .intro-running .hero-poster::before {
-    animation:
-      intro-artwork-reveal 940ms cubic-bezier(0.16, 1, 0.3, 1) 630ms both,
-      artwork-drift 58s ease-in-out 1570ms infinite alternate;
+    animation: intro-artwork-reveal 940ms cubic-bezier(0.16, 1, 0.3, 1) 630ms both;
   }
 
   .intro-running [data-intro-reveal] {
@@ -948,18 +938,36 @@
 
   @media (max-width: 47.9375rem) {
     .hero-poster::before {
-      --hero-art-opacity: 0.22;
+      --hero-art-opacity: 0.28;
       inset: -4% -58% 12% -16%;
       background-size: auto 55%;
       background-position: 54% 0%;
       opacity: var(--hero-art-opacity);
       animation: none;
       mask-image:
-        linear-gradient(to bottom, transparent 0%, black 9%, black 54%, transparent 100%),
-        linear-gradient(to right, transparent 0%, black 13%, black 84%, transparent 100%);
+        linear-gradient(
+          to bottom,
+          transparent 0%,
+          black 16%,
+          black 46%,
+          transparent 86%,
+          transparent 100%
+        ),
+        linear-gradient(to right, transparent 0%, black 20%, black 78%, transparent 100%),
+        radial-gradient(ellipse at 50% 30%, black 0 34%, transparent 78%);
+      mask-composite: intersect;
       -webkit-mask-image:
-        linear-gradient(to bottom, transparent 0%, black 9%, black 54%, transparent 100%),
-        linear-gradient(to right, transparent 0%, black 13%, black 84%, transparent 100%);
+        linear-gradient(
+          to bottom,
+          transparent 0%,
+          black 16%,
+          black 46%,
+          transparent 86%,
+          transparent 100%
+        ),
+        linear-gradient(to right, transparent 0%, black 20%, black 78%, transparent 100%),
+        radial-gradient(ellipse at 50% 30%, black 0 34%, transparent 78%);
+      -webkit-mask-composite: source-in, source-in;
     }
 
     .atmospheric-cloud {
@@ -971,7 +979,8 @@
     }
 
     .atmospheric-cloud__image {
-      filter: blur(22px) saturate(0.42) contrast(0.78) sepia(0.1) hue-rotate(232deg) brightness(0.93) !important;
+      filter: blur(22px) saturate(0.42) contrast(0.78) sepia(0.1) hue-rotate(232deg)
+        brightness(0.93) !important;
       opacity: 0.82;
     }
 
@@ -1167,7 +1176,12 @@
     height: 1px;
     margin-top: clamp(1.5rem, 6vw, 2.45rem);
     background:
-      linear-gradient(90deg, transparent, color-mix(in oklab, var(--ink) 28%, transparent) 18% 82%, transparent),
+      linear-gradient(
+        90deg,
+        transparent,
+        color-mix(in oklab, var(--ink) 28%, transparent) 18% 82%,
+        transparent
+      ),
       radial-gradient(circle, var(--pink) 0 2px, transparent 2.5px);
     background-position: center, center;
     background-repeat: no-repeat;
@@ -1497,15 +1511,6 @@
   }
 }
 
-@keyframes artwork-drift {
-  from {
-    transform: translate3d(-0.8%, -0.4%, 0) scale(1.01);
-  }
-  to {
-    transform: translate3d(0.9%, 0.5%, 0) scale(1.025);
-  }
-}
-
 @keyframes intro-field-release {
   0%,
   72% {
@@ -1525,23 +1530,17 @@
   8% {
     opacity: 1;
   }
-  34% {
+  32% {
     opacity: 1;
     transform: translate3d(-50%, -50%, 0) scale(1.03) rotate(7deg);
   }
   42% {
     transform: translate3d(-50%, -50%, 0) scale(1) rotate(5deg);
   }
-  78%,
-  92% {
+  100% {
     opacity: 1;
     transform: translate3d(-50%, -50%, 0) translate3d(var(--intro-x), var(--intro-y), 0)
-      scale(var(--intro-scale)) rotate(0deg);
-  }
-  100% {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0) translate3d(var(--intro-x), var(--intro-y), 0)
-      scale(var(--intro-scale)) rotate(0deg);
+      scale(var(--intro-scale-x), var(--intro-scale-y)) rotate(0deg);
   }
 }
 
@@ -1572,11 +1571,9 @@
 @keyframes intro-artwork-reveal {
   from {
     opacity: 0;
-    transform: translate3d(-0.8%, -0.4%, 0) scale(1.018);
   }
   to {
     opacity: var(--hero-art-opacity);
-    transform: translate3d(-0.8%, -0.4%, 0) scale(1.01);
   }
 }
 
