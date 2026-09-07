@@ -11,15 +11,30 @@ export function About() {
         <SectionMark index="01" title="About" />
 
         <Reveal as="h2" className="about-headline mx-auto">
-          <span className="about-headline__line display block">
-            Ten years of
+          <span className="about-headline__desktop" aria-hidden="true">
+            <span className="about-headline__line display block">
+              Ten years of
+            </span>
+            <span className="about-headline__line about-headline__line--accent display block text-pink italic">
+              quantum on
+            </span>
+            <span className="about-headline__line about-headline__line--final display block">
+              the cloud.
+            </span>
           </span>
-          <span className="about-headline__line about-headline__line--accent display block text-pink italic">
-            quantum on
+          <span className="about-headline__mobile" aria-hidden="true">
+            <span className="about-headline__mobile-line display">Ten years</span>
+            <span className="about-headline__mobile-line about-headline__mobile-line--of display">
+              of
+            </span>
+            <span className="about-headline__mobile-line about-headline__mobile-line--accent display text-pink italic">
+              quantum
+            </span>
+            <span className="about-headline__mobile-line about-headline__mobile-line--final display">
+              on the cloud.
+            </span>
           </span>
-          <span className="about-headline__line about-headline__line--final display block">
-            the cloud.
-          </span>
+          <span className="sr-only">Ten years of quantum on the cloud.</span>
         </Reveal>
 
         <div className="about-columns grid gap-10 md:grid-cols-3">

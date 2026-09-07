@@ -7,6 +7,7 @@ import { Schedule } from "@/components/sections/Schedule";
 import { Speakers } from "@/components/sections/Speakers";
 import { Venue } from "@/components/sections/Venue";
 import { Team } from "@/components/sections/Team";
+import { Partners } from "@/components/sections/Partners";
 import { Faq } from "@/components/sections/Faq";
 import { Contact } from "@/components/sections/Contact";
 
@@ -40,6 +41,7 @@ function Index() {
         <Venue />
         <Speakers />
         <Team />
+        <Partners />
         <Faq />
         <Contact />
       </main>

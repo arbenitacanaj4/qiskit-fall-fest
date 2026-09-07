@@ -1,30 +1,10 @@
-import { Qubit } from "@/components/atmosphere";
 import { ArrowIcon } from "@/components/ArrowIcon";
 import { REGISTER_URL, event } from "@/data/event";
 
 export function Hero() {
   return (
     <section id="home" className="hero-poster relative isolate overflow-hidden px-4 sm:px-6 lg:px-8">
-      <div className="hero-poster__inner mx-auto max-w-[1600px]">
-        {/* top line: status strip */}
-        <div
-          className="hero-poster__status flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2"
-          data-intro-reveal="technical"
-        >
-          <p className="hero-status-primary mono-label">
-            Official event · Supported by IBM Quantum{" "}
-            <span className="hero-status-qubit">
-              <span aria-hidden="true">/</span>
-              <Qubit />
-            </span>
-          </p>
-          <p className="hero-coordinates mono-label">
-            47.4735°N 19.0596°E <span className="mx-2 text-ink/25">/</span> <Qubit />
-          </p>
-        </div>
-
-        <div className="rule-ink" />
-
+      <div className="hero-poster__inner mx-auto">
         <div className="hero-composition">
           {/* headline composition, deliberately mis-aligned, breaks the grid */}
           <h1 className="hero-title">
@@ -36,14 +16,14 @@ export function Hero() {
                 Qiskit
               </span>
               <span
-                className="hero-title__line display block text-pink lg:ml-[8vw]"
+                className="hero-title__line hero-title__line--fall display block text-pink"
                 data-intro-reveal="fall"
               >
                 Fall Fest
               </span>
-              <span className="hero-title__meta flex flex-wrap items-end gap-x-4 lg:-ml-[1vw]">
+              <span className="hero-title__meta flex flex-wrap items-end gap-x-4">
                 <span
-                  className="hero-title__line display text-grape italic"
+                  className="hero-title__line hero-title__year display text-grape italic"
                   data-intro-reveal="place"
                 >
                   2026

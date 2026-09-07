@@ -14,7 +14,7 @@ export function Contact() {
 
       <div className="mx-auto max-w-[1600px]">
         <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-paper/50">
-          07 <span className="mx-2 text-paper/25">/</span> Contact &amp; registration
+          08 <span className="mx-2 text-paper/25">/</span> Contact &amp; registration
         </p>
 
         <h2 className="mt-8">

@@ -114,7 +114,7 @@ export type TeamMember = { name: string; role: string; linkedin: string; photo?:
 export const team: TeamMember[] = [
   { name: "Gvantsa Kapanadze", role: "Lead Organizer", linkedin: "https://www.linkedin.com/in/gvantsakapanadze/" },
   { name: "Rodina Osman", role: "Organizer", linkedin: "https://www.linkedin.com/in/rodina-osman/" },
-  { name: "Arbenite Canaj", role: "Organizer", linkedin: "https://www.linkedin.com/in/arbenite-canaj/" },
+  { name: "Arbenite Canaj", role: "Organizer", linkedin: "https://www.linkedin.com/in/arbenite-canaj/", photo: "nita.jpg" },
 ];
 
 export const venue = {
@@ -142,10 +142,9 @@ export const faq = [
 ];
 
 export const partners = [
-  { name: "Qiskit", note: "Programme supporter" },
   { name: "IBM Quantum", note: "Programme supporter" },
   { name: "Budapest University of Technology and Economics (BME)", note: "Host institution" },
-  { name: "Sponsor / Partner TBC", note: "Future sponsor placeholder" },
+  { name: "X Sponsor", note: "Placeholder sponsor" },
 ];
 
 export const contact = {

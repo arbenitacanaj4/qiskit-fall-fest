@@ -8,7 +8,7 @@ export function Faq() {
       <Cloud depth={3} variant={2} className="top-[12%] right-[-32%] w-[105%] lg:w-[62%]" opacity={0.16} />
 
       <div className="mx-auto max-w-[1600px]">
-        <SectionMark index="06" title="Questions" />
+        <SectionMark index="07" title="Questions" />
 
         <h2 className="faq-heading display mx-auto">FAQ</h2>
 
