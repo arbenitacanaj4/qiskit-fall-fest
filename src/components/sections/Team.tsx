@@ -22,12 +22,7 @@ export function Team() {
         {/* contact sheet: designed for exactly three organizers */}
         <ul className="team-grid grid gap-x-5 gap-y-10 sm:grid-cols-2 md:grid-cols-3">
           {team.map((m, i) => (
-            <Reveal
-              as="li"
-              key={m.name}
-              delay={i * 50}
-              className={`team-member ${i === 2 ? "sm:col-span-2 sm:mx-auto sm:w-[52%] md:col-span-1 md:mx-0 md:w-auto" : ""}`}
-            >
+            <Reveal as="li" key={m.name} delay={i * 50} className={`team-member`}>
               <Portrait src={m.photo} name={m.name} ratio="aspect-square" className="team-member__portrait" />
               <p className="team-member__name display mt-2 leading-none">{m.name}</p>
               <p className="mono-label mt-1">{m.role}</p>

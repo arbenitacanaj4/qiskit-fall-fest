@@ -5,6 +5,10 @@
 
 export const REGISTER_URL = "https://forms.gle/REPLACE-WITH-GOOGLE-FORM";
 
+import gvantsaImg from "@/assets/gvantsa.jpg";
+import rodinaImg from "@/assets/rodina.jpg";
+import nitaImg from "@/assets/nita.jpeg";
+
 export const event = {
   title: "Qiskit Fall Fest 2026",
   city: "Budapest",
@@ -112,9 +116,9 @@ export const speakers: Speaker[] = [
 export type TeamMember = { name: string; role: string; linkedin: string; photo?: string };
 
 export const team: TeamMember[] = [
-  { name: "Gvantsa Kapanadze", role: "Lead Organizer", linkedin: "https://www.linkedin.com/in/gvantsakapanadze/" },
-  { name: "Rodina Osman", role: "Organizer", linkedin: "https://www.linkedin.com/in/rodina-osman/" },
-  { name: "Arbenite Canaj", role: "Organizer", linkedin: "https://www.linkedin.com/in/arbenite-canaj/", photo: "nita.jpg" },
+  { name: "Gvantsa Kapanadze", role: "Lead Organizer", linkedin: "https://www.linkedin.com/in/gvantsakapanadze/", photo: gvantsaImg },
+  { name: "Rodina Osman", role: "Organizer", linkedin: "https://www.linkedin.com/in/rodina-osman/", photo: rodinaImg },
+  { name: "Arbenite Canaj", role: "Organizer", linkedin: "https://www.linkedin.com/in/arbenite-canaj/", photo: nitaImg },
 ];
 
 export const venue = {

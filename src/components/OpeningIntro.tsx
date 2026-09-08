@@ -52,6 +52,16 @@ export function OpeningIntro() {
     );
     document.documentElement.classList.add("intro-complete");
     setPhase("done");
+    // Ensure mobile landing starts at the true top after the intro finishes,
+    // but avoid overriding intentional hash navigation.
+    try {
+      if (!location.hash && window.innerWidth < 768) {
+        // run on next frame so layout settles (fonts, images)
+        window.requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0 }));
+      }
+    } catch (e) {
+      // ignore in non-browser contexts
+    }
   }, []);
 
   useEffect(() => {
