@@ -56,8 +56,26 @@ export function OpeningIntro() {
     // but avoid overriding intentional hash navigation.
     try {
       if (!location.hash && window.innerWidth < 768) {
-        // run on next frame so layout settles (fonts, images)
-        window.requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0 }));
+        // Temporarily disable smooth scrolling, then force scroll to top
+        const docEl = document.documentElement;
+        const prev = docEl.style.scrollBehavior;
+        docEl.style.scrollBehavior = "auto";
+
+        // ensure multiple frames so layout stabilizes (fonts/images)
+        window.requestAnimationFrame(() => {
+          window.requestAnimationFrame(() => {
+            try {
+              window.scrollTo({ top: 0, left: 0 });
+              // also clear direct offsets
+              document.body.scrollTop = 0;
+              docEl.scrollTop = 0;
+            } catch (e) {
+              /* ignore */
+            }
+            // restore previous scroll behavior
+            docEl.style.scrollBehavior = prev || "";
+          });
+        });
       }
     } catch (e) {
       // ignore in non-browser contexts
