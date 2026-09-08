@@ -1073,6 +1073,27 @@
       display: block;
     }
 
+    /* Center the about headline composition on small screens */
+    .about-headline {
+      text-align: center;
+      margin-inline: auto;
+      width: min(100%, 23rem);
+    }
+
+    .about-headline__line,
+    .about-headline__mobile-line {
+      display: block;
+      margin-left: 0;
+    }
+
+    .about-headline__line--accent,
+    .about-headline__line--final,
+    .about-headline__mobile-line--of,
+    .about-headline__mobile-line--accent,
+    .about-headline__mobile-line--final {
+      margin-left: 0;
+    }
+
     .about-headline__mobile-line {
       font-size: clamp(2.8rem, 13.2vw, 3.95rem);
       line-height: 0.82;
