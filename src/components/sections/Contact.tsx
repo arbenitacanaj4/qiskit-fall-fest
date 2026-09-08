@@ -1,7 +1,6 @@
 import { Cloud, Qubit } from "@/components/atmosphere";
 import { ArrowIcon } from "@/components/ArrowIcon";
 import { REGISTER_URL, contact, event } from "@/data/event";
-import ibmQuantumLogoReverse from "@/assets/IBM_Quantum_logotype_rev_RGB.png";
 
 export function Contact() {
   return (
@@ -74,11 +73,7 @@ export function Contact() {
         </div>
 
         <footer className="contact-footer mt-16 border-t border-paper/25 pt-4 font-mono text-[11px] tracking-[0.16em] uppercase text-paper/45">
-          <p>Qiskit Fall Fest 2026 · Budapest edition</p>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <span>Student organized · Supported by IBM Quantum</span>
-        
-          </div>
+          <p>All rights reserved.</p>
           <p className="text-paper/60">
             state: <Qubit className="text-paper/60" />
           </p>

@@ -34,7 +34,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: Readonly<{ error: Error; reset: () => void }>) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -52,6 +52,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
+            type="button"
             onClick={() => {
               router.invalidate();
               reset();
@@ -104,10 +105,38 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
-function RootShell({ children }: { children: ReactNode }) {
+function RootShell({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            (function(){
+              try {
+                if ('scrollRestoration' in history && !location.hash) {
+                  history.scrollRestoration = 'manual';
+                }
+
+                function ensureTop() {
+                  try { window.scrollTo(0,0); document.documentElement.scrollTop = 0; document.body.scrollTop = 0; } catch(e){}
+                }
+
+                if (!location.hash) {
+                  if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', ensureTop, { once: true });
+                  } else {
+                    ensureTop();
+                  }
+
+                  window.addEventListener('load', function(){ setTimeout(ensureTop, 0); }, { once: true });
+                  window.addEventListener('pageshow', function(e){ if (!e.persisted) setTimeout(ensureTop, 0); }, { once: true });
+                }
+              } catch(e){}
+            })();
+        `,
+          }}
+        />
         <HeadContent />
       </head>
       <body>
