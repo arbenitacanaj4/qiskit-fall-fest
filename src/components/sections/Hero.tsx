@@ -73,7 +73,7 @@ export function Hero() {
                 <span className="font-semibold">{event.host}</span>. Part of the global Qiskit Fall
                 Fest, celebrating <span className="text-pink italic">a decade of quantum on the cloud</span>.
               </p>
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3 hero-register-group">
                 <a
                   href={REGISTER_URL}
                   target="_blank"

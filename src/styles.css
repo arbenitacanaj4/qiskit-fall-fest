@@ -1423,6 +1423,20 @@
       font-size: clamp(1.8rem, 7.4vw, 2.25rem);
     }
 
+    /* Stack register label under the link and center on mobile */
+    .hero-register-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .hero-register-group .mono-label {
+      display: block;
+      text-align: center;
+      margin-top: 0.15rem;
+    }
+
     /* Center hero composition on small phones */
     .hero-title {
       text-align: center;
