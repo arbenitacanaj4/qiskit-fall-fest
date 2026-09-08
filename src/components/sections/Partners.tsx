@@ -17,7 +17,7 @@ export function Partners() {
       <Cloud depth={3} variant={2} className="top-[-34%] left-[-32%] w-[120%] lg:w-[58%]" opacity={0.18} flip />
 
       <div className="mx-auto max-w-[1600px]">
-        <SectionMark index="06" title="Partners / Support" note="Current supporters · Sponsors TBC" />
+        <SectionMark index="06" title="Partners"/>
         <ul className="partner-list">
           {partners.map((p) => (
             <LogoSlot
