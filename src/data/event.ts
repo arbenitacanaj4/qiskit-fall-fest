@@ -3,7 +3,7 @@
  * Replace strings, add/remove array items, no layout changes needed.
  */
 
-export const REGISTER_URL = "https://forms.gle/REPLACE-WITH-GOOGLE-FORM";
+export const REGISTER_URL = "https://docs.google.com/forms/d/e/1FAIpQLSd8CsZOmB4NaSIV-z3EVunxwN1ktaYgHa0y4ukMn8kMz2jD9A/viewform";
 
 import gvantsaImg from "@/assets/gvantsa.jpg";
 import rodinaImg from "@/assets/rodina.jpg";
