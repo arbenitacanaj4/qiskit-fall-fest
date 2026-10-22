@@ -1,7 +1,7 @@
 import { Cloud } from "@/components/atmosphere";
 import { SectionMark } from "@/components/SectionMark";
 import { SessionDetails } from "@/components/EventDetails";
-import { event, sessions, speakers } from "@/data/event";
+import { sessions, speakers } from "@/data/event";
 
 export function Schedule() {
   return (
@@ -18,18 +18,7 @@ export function Schedule() {
       <div className="mx-auto max-w-[1600px]">
         <SectionMark index="02" title="Programme" />
         <div className="agenda-heading">
-          <h2 className="agenda-intro display">
-            AN <span className="text-pink">UNCLASSICAL</span> AFTERNOON.
-          </h2>
-          <p className="agenda-tagline text-xl text-grape sm:text-2xl">
-            The usual rules need not apply.
-          </p>
-          <p className="agenda-datetime mono-label">
-            <span>{event.dates}</span>
-            <span>
-              {event.startTime} - {event.endTime}
-            </span>
-          </p>
+          <h2 className="agenda-intro display">Agenda</h2>
         </div>
         <ol className="agenda-list border-t border-ink/25">
           {sessions

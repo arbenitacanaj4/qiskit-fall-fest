@@ -653,7 +653,7 @@
   }
 
   .venue-title {
-    font-size: clamp(3.15rem, 13vw, 7.75rem);
+    font-size: clamp(2.75rem, 10vw, 7.75rem);
   }
 
   .venue-copy {
@@ -661,7 +661,7 @@
   }
 
   .venue-details {
-    align-self: center;
+    align-self: start;
   }
 
   .venue-detail-value {
@@ -930,12 +930,12 @@
     }
 
     .venue-section {
-      padding-top: clamp(5rem, 10svh, 7.5rem);
-      padding-bottom: clamp(5rem, 10svh, 7.5rem);
+      padding-top: 4rem;
+      padding-bottom: 4rem;
     }
 
     .venue-title {
-      font-size: clamp(4.75rem, min(5.7vw, 9.8svh), 7.75rem);
+      font-size: clamp(4.75rem, min(5.7vw, 9.8svh), 5.5rem);
     }
 
     .venue-copy {
@@ -972,7 +972,6 @@
 
     .team-title {
       font-size: clamp(5.5rem, min(8.6vw, 13svh), 10.5rem);
-      transform: translateX(clamp(-1rem, -0.8vw, 0rem));
     }
 
     .faq-heading {
@@ -1880,7 +1879,8 @@
     cursor: pointer;
   }
   .agenda-heading {
-    margin-block: 3rem;
+    margin-block: clamp(1.5rem, 3vw, 2rem);
+    text-align: center;
   }
   .agenda-list {
     max-width: 75rem;
@@ -2133,29 +2133,9 @@
   .about-column__title > :last-child {
     min-width: 0;
   }
-  .agenda-heading {
-    margin-block: clamp(2rem, 5vw, 3rem);
-    text-align: center;
-  }
   .agenda-intro {
     text-wrap: balance;
   }
-  .agenda-heading p {
-    text-align: center;
-  }
-  .agenda-tagline {
-    margin-top: 1rem;
-    line-height: 1.4;
-  }
-  .agenda-datetime {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem 1.5rem;
-    margin-top: 1.25rem;
-    line-height: 1.6;
-  }
-  .agenda-datetime > span,
   .agenda-time {
     white-space: nowrap;
   }
@@ -2191,6 +2171,10 @@
     display: inline-block;
   }
   @media (max-width: 47.999rem) {
+    .hero-intro__copy {
+      text-align: center;
+      text-wrap: pretty;
+    }
     .hero-date .hero-acknowledgement {
       text-align: center;
       font-size: 0.625rem;
@@ -2256,9 +2240,6 @@
     }
     .hero-date__number {
       font-size: clamp(6rem, 25vw, 8rem);
-    }
-    .agenda-datetime {
-      flex-direction: column;
     }
     .agenda-row {
       grid-template-columns: minmax(0, 1fr);

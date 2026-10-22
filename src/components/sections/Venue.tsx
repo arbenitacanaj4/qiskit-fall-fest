@@ -7,7 +7,7 @@ export function Venue() {
   return (
     <section
       id="venue"
-      className="venue-section relative isolate overflow-hidden bg-peri/40 px-4 py-16 sm:px-6 lg:px-8 lg:py-32"
+      className="venue-section relative isolate overflow-hidden bg-peri/40 px-4 sm:px-6 lg:px-8"
     >
       <Cloud
         depth={3}
@@ -16,21 +16,20 @@ export function Venue() {
         opacity={0.22}
       />
 
-      <div className="mx-auto max-w-[1600px]">
+      <div className="mx-auto max-w-[1160px]">
         <SectionMark index="03" title="Venue" note="Budapest · Hungary" />
 
-        <div className="venue-layout mt-10 grid gap-12 lg:grid-cols-12 lg:gap-8">
-          <Reveal className="lg:col-span-7">
-            <h2 className="venue-title display leading-[0.86]">
-              Budapest University of Technology and Economics
-            </h2>
+        <div className="venue-layout mt-6 grid items-start gap-8 lg:mt-10 lg:grid-cols-[minmax(0,9fr)_minmax(0,11fr)] lg:gap-x-16">
+          <Reveal className="min-w-0">
+            <h2 className="venue-title display leading-[0.86]">The venue.</h2>
+            <p className="display mt-3 text-2xl text-grape sm:text-3xl">BME · Budapest</p>
             <p className="venue-copy mt-6 max-w-lg leading-relaxed text-ink/80">
               One day on campus, bringing together quantum computing talks, learning, and
               conversation.
             </p>
           </Reveal>
 
-          <Reveal delay={100} className="venue-details lg:col-span-5 lg:col-start-8">
+          <Reveal delay={100} className="venue-details min-w-0">
             <dl className="divide-y divide-ink/20 border-y border-ink/25">
               {[
                 ["Institution", venue.university],
