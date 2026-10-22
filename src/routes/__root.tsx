@@ -82,7 +82,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Student-organized Qiskit Fall Fest at BME, Budapest, October 29 to 30, 2026.",
+          "Student-organized Qiskit Fall Fest at BME, Budapest, October 30, 2026. A free one-day event with talks and quantum computing learning sessions.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

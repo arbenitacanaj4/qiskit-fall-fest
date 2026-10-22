@@ -10,8 +10,12 @@ export function SectionMark({
 }) {
   return (
     <div className="rule-ink flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1 pt-3">
-      <p className="mono-label">
-        <span className="text-pink">{index}</span> <span className="mx-2 text-ink/25">/</span> {title}
+      <p className="section-label mono-label">
+        <span className="section-label__number text-pink">
+          {index}
+          <span className="text-ink/25"> /</span>
+        </span>
+        <span>{title}</span>
       </p>
       {note && <p className="mono-label">{note}</p>}
     </div>

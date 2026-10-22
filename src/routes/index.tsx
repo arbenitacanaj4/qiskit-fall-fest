@@ -11,9 +11,10 @@ import { Partners } from "@/components/sections/Partners";
 import { Faq } from "@/components/sections/Faq";
 import { Contact } from "@/components/sections/Contact";
 
-const title = "Qiskit Fall Fest 2026, Budapest, BME · Oct 29 / 30";
-const description =
-  "A free, student-organized Qiskit Fall Fest at Budapest University of Technology and Economics, October 29 to 30, 2026. Talks and a hackathon. Register now.";
+import { event } from "@/data/event";
+
+const title = "Qiskit Fall Fest 2026, Budapest, BME · Oct 30";
+const description = `A free, student-organized Qiskit Fall Fest at ${event.host}, ${event.dates}. Doors open ${event.doorsOpenTime}; programme ${event.startTime} - ${event.endTime} Budapest time. Talks, challenges, a panel discussion, and networking. Supported by IBM Quantum. Register now.`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,6 +25,8 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
   }),
   component: Index,

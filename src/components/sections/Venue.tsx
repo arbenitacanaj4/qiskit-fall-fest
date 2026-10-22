@@ -5,8 +5,16 @@ import { venue } from "@/data/event";
 
 export function Venue() {
   return (
-    <section id="venue" className="venue-section relative isolate overflow-hidden bg-peri/40 px-4 py-16 sm:px-6 lg:px-8 lg:py-32">
-      <Cloud depth={3} variant={1} className="top-[-20%] left-[-10%] w-[100%] lg:w-[65%]" opacity={0.22} />
+    <section
+      id="venue"
+      className="venue-section relative isolate overflow-hidden bg-peri/40 px-4 py-16 sm:px-6 lg:px-8 lg:py-32"
+    >
+      <Cloud
+        depth={3}
+        variant={1}
+        className="top-[-20%] left-[-10%] w-[100%] lg:w-[65%]"
+        opacity={0.22}
+      />
 
       <div className="mx-auto max-w-[1600px]">
         <SectionMark index="03" title="Venue" note="Budapest · Hungary" />
@@ -17,7 +25,8 @@ export function Venue() {
               Budapest University of Technology and Economics
             </h2>
             <p className="venue-copy mt-6 max-w-lg leading-relaxed text-ink/80">
-              Two days on campus. Talks, a hackathon, coffee and conversation in between.
+              One day on campus, bringing together quantum computing talks, learning, and
+              conversation.
             </p>
           </Reveal>
 

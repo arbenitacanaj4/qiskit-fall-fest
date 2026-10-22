@@ -49,7 +49,7 @@ export function SiteNav() {
             data-intro-logo-target
           />
           <span className="display truncate text-[15px] leading-none tracking-[0.04em] sm:text-lg">
-            Qiskit Fall Fest 
+            Qiskit Fall Fest
           </span>
         </a>
 
@@ -61,7 +61,7 @@ export function SiteNav() {
                 <a
                   href={item.href}
                   aria-current={active === item.href ? "true" : undefined}
-                  className={`group flex items-end gap-1.5 border-l border-ink/15 px-3 pt-3 pb-2 font-mono text-[11px] tracking-[0.16em] uppercase transition-colors xl:px-4 ${
+                  className={`group flex items-end gap-1.5 border-l border-ink/15 px-3 pt-3 pb-2 font-mono text-[11px] tracking-[0.16em] uppercase transition-colors xl:px-2.5 ${
                     active === item.href ? "text-pink" : "text-ink/70 hover:text-ink"
                   }`}
                 >
@@ -79,7 +79,7 @@ export function SiteNav() {
           href={REGISTER_URL}
           target="_blank"
           rel="noreferrer"
-          className="ml-auto flex shrink-0 items-center gap-1.5 bg-pink px-2.5 font-mono text-[10px] tracking-[0.14em] text-paper uppercase transition-colors hover:bg-ink min-[390px]:gap-2 min-[390px]:px-3 min-[390px]:text-[11px] min-[390px]:tracking-[0.18em] sm:px-4 xl:ml-0 xl:px-7"
+          className="ml-auto flex shrink-0 items-center gap-1.5 bg-pink px-2.5 font-mono text-[10px] tracking-[0.14em] text-paper uppercase transition-colors hover:bg-ink min-[390px]:gap-2 min-[390px]:px-3 min-[390px]:text-[11px] min-[390px]:tracking-[0.18em] sm:px-4 xl:ml-0 xl:px-4"
         >
           Register <ArrowIcon className="size-3 shrink-0" />
         </a>
