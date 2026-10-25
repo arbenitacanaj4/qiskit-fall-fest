@@ -26,8 +26,8 @@ export function Contact() {
       />
 
       <div className="contact-content mx-auto max-w-[1600px]">
-        <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-paper/50">
-          08 <span className="mx-2 text-paper/25">/</span> Contact &amp; registration
+        <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-pink" aria-label="08 Contact & registration">
+          08
         </p>
 
         <h2 className="contact-heading">

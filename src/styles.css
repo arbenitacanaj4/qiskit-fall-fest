@@ -412,16 +412,16 @@
   .team-section,
   .partners-section,
   .faq-section {
-    padding-top: clamp(4rem, 9svh, 7rem);
-    padding-bottom: clamp(4rem, 9svh, 7rem);
+    /* Adjacent sections share the transition space on phones and tablets. */
+    padding-block: clamp(1.75rem, 6vw, 2.5rem);
   }
 
   .about-section {
-    padding-bottom: clamp(2.75rem, 6svh, 4.75rem);
+    padding-bottom: 1rem;
   }
 
   .programme-section {
-    padding-top: clamp(2.75rem, 6svh, 4.75rem);
+    padding-top: 1rem;
   }
 
   .about-section::after,
@@ -518,7 +518,35 @@
   }
 
   .about-marquee {
-    margin-top: clamp(3.25rem, 7svh, 5rem);
+    margin-top: clamp(2rem, 6vw, 3rem);
+  }
+
+  .about-marquee__meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+  }
+
+  .about-marquee__meta > span {
+    white-space: nowrap;
+  }
+
+  .about-marquee__moving-meta {
+    display: none;
+  }
+
+  @media (min-width: 40rem) {
+    .about-marquee__meta {
+      display: none;
+    }
+
+    .about-marquee__moving-meta {
+      display: inline;
+    }
   }
 
   .partner-list {
@@ -645,11 +673,6 @@
 
   .programme-row__title {
     font-size: clamp(1.7rem, 8.2vw, 2.35rem);
-  }
-
-  .venue-section {
-    padding-top: clamp(4rem, 9svh, 7rem);
-    padding-bottom: clamp(4rem, 9svh, 7rem);
   }
 
   .venue-title {
@@ -880,6 +903,10 @@
 
     .about-section {
       padding-bottom: clamp(3rem, 6.5svh, 5rem);
+    }
+
+    .about-marquee {
+      margin-top: clamp(3.25rem, 7svh, 5rem);
     }
 
     .programme-section {

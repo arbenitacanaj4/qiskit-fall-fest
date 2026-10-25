@@ -91,15 +91,19 @@ export function About() {
           </Reveal>
         </div>
 
-        {/* visual interruption: technical annotation strip */}
+        {/* Keep the gate sequence and date fully readable beside the moving annotations. */}
         <div className="about-marquee overflow-hidden border-y border-ink/20 py-3">
+          <div className="about-marquee__meta font-mono uppercase text-ink/60">
+            <span>H · CX · RZ · measure</span>
+            <span>30 Oct 2026</span>
+          </div>
           <div className="marquee-track flex w-max gap-10 font-mono text-[11px] tracking-[0.2em] whitespace-nowrap uppercase text-ink/60">
             {Array.from({ length: 2 }).map((_, i) => (
               <span key={i} className="flex gap-10">
                 <span>Free entry</span>
                 <span className="text-pink">Superposition ≠ magic</span>
-                <span>H · CX · RZ · measure</span>
-                <span>30 Oct 2026</span>
+                <span className="about-marquee__moving-meta">H · CX · RZ · measure</span>
+                <span className="about-marquee__moving-meta">30 Oct 2026</span>
                 <span className="text-pink">Student organized</span>
                 <span>Budapest, HU</span>
                 <span>|0⟩ + |1⟩ / √2</span>

@@ -14,6 +14,7 @@ import peskoImg from "@/assets/Zoltan Pesko.jpg";
 import joczikImg from "@/assets/Szabolcs Jóczik.jpeg";
 import balintImg from "@/assets/Farádi Bálint.png";
 import asbothImg from "@/assets/Janos Asboth.jpg";
+import danielImg from "@/assets/daniel.jpg";
 import bmeLogo from "@/assets/BME LOGO 2_2025_horizontal_black_eng.png";
 import departmentLogo from "@/assets/department logo.png";
 import qiskitLogo from "@/assets/qiskit_black.png";
@@ -335,12 +336,15 @@ export const speakers: Speaker[] = [
     displayOrder: 5,
     name: "Dániel Szombati",
     eventRole: "Speaker",
-    role: "Lead Quantum Engineer",
+    role: "Head of Hardware",
     organization: "Planckian",
-    shortBio: "Leading hardware engineering efforts to scale superconducting quantum processors.",
+    shortBio:
+      "Leading a team of physicists and engineers building quantum processors based on global control at Planckian.",
     fullBio: [
-      "Dániel Szombati is a Lead Quantum Engineer at Planckian, a quantum technology startup developing scalable superconducting quantum computing architectures. He specializes in quantum hardware, superconducting qubits, and quantum processor (QPU) development. Based in Budapest, he leads Planckian's hardware engineering efforts, focusing on the challenges of scaling superconducting quantum processors.",
+      "Daniel Szombati is Head of Hardware at Planckian, an Italian quantum computing company, where he leads a team of physicists and engineers building quantum processors based on global control. He has spent a decade on superconducting and flux qubits, designing them, fabricating them, and measuring them, and has built qubit fabrication and measurement laboratories from the ground up at four institutions across Europe and Australia.",
+      "Before Planckian he was Lead Hardware Engineer at Qilimanjaro in Barcelona, where he delivered the company’s first generation of adiabatic flux-qubit processors. He previously held postdoctoral positions at ENS de Lyon and the University of Queensland, and completed his PhD at TU Delft, pioneering the experimental observation of the Josephson φ₀ effect.",
     ],
+    photo: danielImg,
     linkedin: "https://www.linkedin.com/in/daniel-szombati-672a3aa4/",
     website: null,
     links: [],
